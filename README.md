@@ -36,6 +36,12 @@ Uma aplicação de e-commerce moderna e responsiva desenvolvida com React, TypeS
 - **ESLint** - Linting de código
 - **TypeScript ESLint** - Regras específicas para TypeScript
 
+### Testes
+- **Jest** - Framework de testes JavaScript
+- **React Testing Library** - Biblioteca para testar componentes React
+- **Jest DOM** - Matchers customizados para DOM
+- **User Event** - Simulação de interações do usuário
+
 ## 📦 Instalação
 
 ### Pré-requisitos
@@ -81,7 +87,128 @@ npm run lint         # Executa o ESLint
 
 # Preview
 npm run preview      # Visualiza o build de produção localmente
+
+# Testes
+npm test             # Executa todos os testes
+npm run test:watch   # Executa testes em modo watch
+npm run test:coverage # Executa testes com relatório de cobertura
 ```
+
+## 🧪 Testes
+
+O projeto possui uma estrutura completa de testes implementada com Jest e React Testing Library, garantindo qualidade e confiabilidade do código.
+
+### Estrutura de Testes
+
+```
+src/
+├── components/          # Componentes com seus respectivos testes
+│   ├── Card/
+│   │   ├── Card.test.tsx
+│   │   └── index.tsx
+│   ├── Empty/
+│   │   ├── Empty.test.tsx
+│   │   └── index.tsx
+│   ├── Header/
+│   │   ├── Header.test.tsx
+│   │   └── index.tsx
+│   └── Loader/
+│       ├── Loader.test.tsx
+│       └── index.tsx
+├── contexts/            # Testes dos contextos
+│   ├── CartContextProvider.test.tsx
+│   └── CartContextProvider.tsx
+├── hooks/               # Testes dos custom hooks
+│   ├── useCart.test.tsx
+│   ├── useCart.ts
+│   ├── useProducts.test.tsx
+│   └── useProducts.ts
+├── pages/               # Testes das páginas
+│   └── Home/
+│       ├── Home.test.tsx
+│       └── index.tsx
+├── services/            # Testes dos serviços
+│   ├── getAllProducts.test.ts
+│   └── getAllProducts.ts
+├── utils/               # Testes das funções utilitárias
+│   ├── formatPrice.test.ts
+│   └── index.ts
+├── __mocks__/           # Mocks para arquivos estáticos
+│   └── fileMock.js
+├── test-utils/          # Utilitários para testes
+└── setupTests.ts        # Configuração global dos testes
+```
+
+### Tipos de Testes Implementados
+
+#### 🧩 Testes de Componentes
+- **Card**: Testa renderização, interações e funcionalidades do componente de produto
+- **Empty**: Verifica estados vazios e mensagens de feedback
+- **Header**: Testa navegação e funcionalidades do cabeçalho
+- **Loader**: Valida estados de carregamento
+- **Home**: Testa a página principal com listagem de produtos
+
+#### 🔄 Testes de Contextos
+- **CartContext**: Valida gerenciamento de estado do carrinho de compras
+- **CartContextProvider**: Testa provedor do contexto e suas funcionalidades
+
+#### 🎣 Testes de Hooks
+- **useCart**: Testa lógica do hook do carrinho (adicionar, remover, limpar)
+- **useProducts**: Valida busca e gerenciamento de produtos
+
+#### 🔧 Testes de Serviços
+- **getAllProducts**: Testa chamadas de API e tratamento de dados
+
+#### 🛠️ Testes de Utilitários
+- **formatPrice**: Valida formatação de preços em Real (R$)
+
+### Executando os Testes
+
+```bash
+# Executar todos os testes
+npm test
+
+# Executar testes em modo watch (desenvolvimento)
+npm run test:watch
+
+# Executar testes com relatório de cobertura
+npm run test:coverage
+
+# Executar testes específicos
+npm test -- --testNamePattern="Card"
+
+# Executar testes de um arquivo específico
+npm test -- Card.test.tsx
+```
+
+### Cobertura de Testes
+
+O projeto está configurado para gerar relatórios de cobertura detalhados:
+
+- **Cobertura de Linhas**: Percentual de linhas executadas
+- **Cobertura de Funções**: Percentual de funções testadas
+- **Cobertura de Branches**: Percentual de branches condicionais testados
+- **Cobertura de Statements**: Percentual de statements executados
+
+O relatório é gerado em formato HTML na pasta `coverage/` e pode ser visualizado abrindo `coverage/lcov-report/index.html` no navegador.
+
+### Configuração de Testes
+
+O projeto utiliza:
+- **Jest** como framework principal
+- **jsdom** para simular ambiente DOM
+- **React Testing Library** para testar componentes como usuários reais
+- **ts-jest** para suporte a TypeScript
+- **identity-obj-proxy** para mock de arquivos CSS
+- **fileMock.js** para mock de imagens e assets
+
+### Boas Práticas de Teste
+
+- Testes focados no comportamento do usuário
+- Uso de queries acessíveis (getByRole, getByText, etc.)
+- Mocks apropriados para dependências externas
+- Testes isolados e independentes
+- Cobertura de casos de sucesso e erro
 
 ## 📁 Estrutura do Projeto
 
@@ -111,6 +238,9 @@ src/
 │   ├── api.ts          # Configuração da API
 │   ├── index.ts        # Funções utilitárias
 │   └── queryClient.ts  # Configuração do React Query
+├── __mocks__/          # Mocks para testes
+├── test-utils/         # Utilitários para testes
+├── setupTests.ts       # Configuração global dos testes
 └── App.tsx             # Componente principal
 ```
 
@@ -168,6 +298,12 @@ npm run preview
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
+
+### Checklist para Contribuição
+- [ ] Testes passando (`npm test`)
+- [ ] Cobertura de testes adequada (`npm run test:coverage`)
+- [ ] Linting sem erros (`npm run lint`)
+- [ ] Build funcionando (`npm run build`)
 
 ## 📝 Licença
 

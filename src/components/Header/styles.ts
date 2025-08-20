@@ -26,11 +26,6 @@ export const Cart = styled.div`
   align-items: center;
   gap: 1rem;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.8;
-  }
 
 	div {
 		display: flex;
@@ -49,7 +44,7 @@ export const Cart = styled.div`
 	span {
 		font-size: 0.75rem;
 		font-weight: 400;
-		color: var(--gray);
+		color: var(--gray-100);
 	}
 `;
 
@@ -58,5 +53,4 @@ export const Icon = styled(MdShoppingBasket)`
 	height: 1.5rem;
 	color: var(--white);
 	cursor: pointer;
-	transition: opacity 0.2s ease;
 `;

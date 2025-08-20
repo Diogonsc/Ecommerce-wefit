@@ -3,7 +3,7 @@ import Image from "../../assets/Loader.svg";
 
 export const Loader = () => {
 	return (
-		<Container>
+		<Container data-testid="loader">
 			<PictureLoader>
 				<source srcSet={Image} media="(min-width: 768px)" />
 				<source srcSet={Image} media="(max-width: 767px)" />

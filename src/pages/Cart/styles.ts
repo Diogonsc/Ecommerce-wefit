@@ -239,7 +239,7 @@ export const DesktopRow = styled.div`
 export const DesktopCell = styled.div`
 	font-size: 0.875rem;
 	color: var(--gray-100);
-	font-weight: 400;
+	font-weight: 700;
 	display: flex;
 	align-items: center;
 
@@ -285,7 +285,7 @@ export const TotalSection = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	gap: 0.25rem;
+	gap: 1.5rem;
 
 	@media (min-width: 768px) {
 		order: 2;
